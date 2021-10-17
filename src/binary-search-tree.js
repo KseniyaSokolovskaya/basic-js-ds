@@ -43,14 +43,28 @@ module.exports = class BinarySearchTree {
         }
       }
     }
-
-
-
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    let node = new Node(data);
+    if (this.base === null) return false;
+
+    let current = this.base;
+    let found = false;
+
+    while (current && !found) {
+      if (node.data === current.data) {
+        return true;
+      } else if (node.data < current.data) {
+        current = current.left;
+      } else if (node.data > current.data) {
+        current = current.right;
+      }
+    }
+
+    return false;
+
+
   }
 
   find(/* data */) {
